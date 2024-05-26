@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatCloud App - Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7F2E53;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+        
+        .logo-container {
+    text-align: center;
+        }
+
+.logo-container img {
+    width: 100px; /* ajustez la taille selon vos besoins */
+    height: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #8B0000;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #8B0000;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #8B0000;
+        }
+        
+        label {
+    font-size: 14px; /* ou toute autre taille de police souhaitée */
+    color: #666; /* ou toute autre couleur grise souhaitée */
+    font-weight: normal; /* supprimer le gras */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img width="64" height="64" src="https://img.icons8.com/nolan/64/hot-sales-hours.png" alt="hot-sales-hours"/>
+            <h1 style="text-align: center; color: #8B0000;">ChatCloud</h1>
+        </div>
+<h6 style="text-align: center; color: gray; font-weight: normal;">PLEASE SIGN IN TO CONTINUE</h6>
+<form id="loginForm" action="#" method="post">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <input type="submit" value="Sign In">
+            <div class="forgot-password">
+                <a href="mailto:contact.tchattrader@gmail.com?subject=Forgot%20Password&body=Dear%20Support%2C%0AI%20have%20forgotten%20my%20password.%20Could%20you%20please%20assist%20me%20in%20resetting%20it%3F%0A%0AMy%20username%20is%20%3A%20">Forgot your password?</a>
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var validUsernames = ["TCT12345@portal.tchattrader.com", "TCT54321@portal.tchattrader.com", "TCT98765@portal.tchattrader.com", "TCT67890@portal.tchattrader.com", "TCT13579@portal.tchattrader.com", "TCT24680@portal.tchattrader.com", "TCT80246@portal.tchattrader.com", "TCT31452@portal.tchattrader.com", "TCT61783@portal.tchattrader.com", "TCT93821@portal.tchattrader.com", "TCT72983@portal.tchattrader.com", "TCT50123@portal.tchattrader.com", "TCT98123@portal.tchattrader.com", "TCT75310@portal.tchattrader.com", "TCT36802@portal.tchattrader.com", "TCT42097@portal.tchattrader.com", "TCT86501@portal.tchattrader.com", "TCT20561@portal.tchattrader.com", "TCT35780@portal.tchattrader.com", "TCT48023@portal.tchattrader.com", "TCT12375@portal.tchattrader.com", "TCT80513@portal.tchattrader.com", "TCT91827@portal.tchattrader.com", "TCT69780@portal.tchattrader.com", "TCT56234@portal.tchattrader.com", "TCT68920@portal.tchattrader.com", "TCT14235@portal.tchattrader.com", "TCT79623@portal.tchattrader.com", "TCT65789@portal.tchattrader.com", "TCT31297@portal.tchattrader.com", "TCT47381@portal.tchattrader.com", "TCT29874@portal.tchattrader.com", "TCT82479@portal.tchattrader.com", "TCT41628@portal.tchattrader.com", "TCT76391@portal.tchattrader.com", "TCT64812@portal.tchattrader.com", "TCT92651@portal.tchattrader.com", "TCT42769@portal.tchattrader.com", "TCT76125@portal.tchattrader.com", "TCT45792@portal.tchattrader.com", "TCT82467@portal.tchattrader.com", "TCT54789@portal.tchattrader.com"];
+            var validPasswords = ["TCT10", "TCT52", "TCT93", "TCT67", "TCT13", "TCT24", "TCT80", "TCT31", "TCT61", "TCT93", "TCT72", "TCT50", "TCT98", "TCT75", "TCT36", "TCT42", "TCT86", "TCT20", "TCT35", "TCT48", "TCT12", "TCT80", "TCT91", "TCT69", "TCT56", "TCT68", "TCT14", "TCT79", "TCT65", "TCT31", "TCT47", "TCT29", "TCT82", "TCT41", "TCT76", "TCT64", "TCT92", "TCT42", "TCT76", "TCT45", "TCT82", "TCT54"];
+            var isValid = validUsernames.indexOf(username) !== -1 && validPasswords[validUsernames.indexOf(username)] === password;
+            if (isValid) {
+                // Redirect to the chat page
+                window.location.href = "file:///C:/Users/christabel/Downloads/Chargement.html";
+            } else {
+                document.getElementById("errorMessage").innerText = "Invalid username or password";
+            }
+        });
+    </script>
+</body>
+</html>
