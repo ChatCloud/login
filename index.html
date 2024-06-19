@@ -119,21 +119,26 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            var validUsernames = ["TCT12345@portal.tchattrader.com", "TCT54321@portal.tchattrader.com", "TCT98765@portal.tchattrader.com", "TCT67890@portal.tchattrader.com", "TCT13579@portal.tchattrader.com", "TCT24680@portal.tchattrader.com", "TCT80246@portal.tchattrader.com", "TCT31452@portal.tchattrader.com", "TCT61783@portal.tchattrader.com", "TCT93821@portal.tchattrader.com", "TCT72983@portal.tchattrader.com", "TCT50123@portal.tchattrader.com", "TCT98123@portal.tchattrader.com", "TCT75310@portal.tchattrader.com", "TCT36802@portal.tchattrader.com", "TCT42097@portal.tchattrader.com", "TCT86501@portal.tchattrader.com", "TCT20561@portal.tchattrader.com", "TCT35780@portal.tchattrader.com", "TCT48023@portal.tchattrader.com", "TCT12375@portal.tchattrader.com", "TCT80513@portal.tchattrader.com", "TCT91827@portal.tchattrader.com", "TCT69780@portal.tchattrader.com", "TCT56234@portal.tchattrader.com", "TCT68920@portal.tchattrader.com", "TCT14235@portal.tchattrader.com", "TCT79623@portal.tchattrader.com", "TCT65789@portal.tchattrader.com", "TCT31297@portal.tchattrader.com", "TCT47381@portal.tchattrader.com", "TCT29874@portal.tchattrader.com", "TCT82479@portal.tchattrader.com", "TCT41628@portal.tchattrader.com", "TCT76391@portal.tchattrader.com", "TCT64812@portal.tchattrader.com", "TCT92651@portal.tchattrader.com", "TCT42769@portal.tchattrader.com", "TCT76125@portal.tchattrader.com", "TCT45792@portal.tchattrader.com", "TCT82467@portal.tchattrader.com", "TCT54789@portal.tchattrader.com"];
-            var validPasswords = ["TCT10", "TCT52", "TCT93", "TCT67", "TCT13", "TCT24", "TCT80", "TCT31", "TCT61", "TCT93", "TCT72", "TCT50", "TCT98", "TCT75", "TCT36", "TCT42", "TCT86", "TCT20", "TCT35", "TCT48", "TCT12", "TCT80", "TCT91", "TCT69", "TCT56", "TCT68", "TCT14", "TCT79", "TCT65", "TCT31", "TCT47", "TCT29", "TCT82", "TCT41", "TCT76", "TCT64", "TCT92", "TCT42", "TCT76", "TCT45", "TCT82", "TCT54"];
-            var isValid = validUsernames.indexOf(username) !== -1 && validPasswords[validUsernames.indexOf(username)] === password;
-            if (isValid) {
-                // Redirect to the chat page
-                window.location.href = "https://chatcloud.github.io/message-search/searching.html";
-            } else {
-                document.getElementById("errorMessage").innerText = "Invalid username or password";
-            }
-        });
+<script>
+    var credentials = {
+    "USNNCC12345@portal.chatcloud.com": { password: "6D3%asR1", url: "https://chatcloud.github.io/message-search/searching.html" },
+    "USNNCC54321@portal.chatcloud.com": { password: "yP#9Zg2*", url: "https://chatcloud.github.io/message-search/searching2.html" },
+    "USNNCC98765@portal.chatcloud.com": { password: "X8z&7u#M", url: "https://chatcloud.github.io/message-search/searching3.html" },
+    // Ajoutez les autres utilisateurs ici avec leurs mots de passe et URLs respectives
+};
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (credentials[username] && credentials[username].password === password) {
+        // Rediriger vers l'URL spécifique associée à ce username
+        window.location.href = credentials[username].url;
+    } else {
+        document.getElementById("errorMessage").innerText = "Invalid username or password";
+    }
+});
     </script>
 </body>
 </html>
